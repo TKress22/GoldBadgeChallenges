@@ -10,6 +10,7 @@ namespace Challenge_01
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("totally works");
         }
     }
 }
