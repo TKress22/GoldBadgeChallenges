@@ -13,5 +13,14 @@ namespace Challenge_01
         string MealDescription { get; set; }
         string MealIngredients { get; set; }
         float MealPrice { get; set; }
+
+        public Meal(int num, string name, string desc, string ings, float price)
+        {
+            MealNumber = num;
+            MealName = name;
+            MealDescription = desc;
+            MealIngredients = ings;
+            MealPrice = price;
+        }
     }
 }
