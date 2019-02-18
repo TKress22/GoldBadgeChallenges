@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace Challenge_01
 {
-    class Program
+    class MenuRepository
     {
-        static void Main(string[] args)
-        {
-            ProgramUI ui = new ProgramUI();
-            ui.Run();
-        }
+        public List<Meal> Menu = new List<Meal>();
+
+        
     }
 }
