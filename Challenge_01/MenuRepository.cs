@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Challenge_01
 {
-    class MenuRepository
+    public class MenuRepository
     {
         Dictionary<int, Meal> Menu = new Dictionary<int, Meal>();
         

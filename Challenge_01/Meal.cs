@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Challenge_01
 {
-    class Meal
+    public class Meal
     {
         public int MealNumber { get; set; }
         public string MealName { get; set; }
