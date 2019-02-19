@@ -12,11 +12,11 @@ namespace Challenge_01
         
         public void AddMeal(Meal mea)
         {
-
+            Menu.Add(mea.MealNumber, mea);
         }
         public void RemoveMeal(int ind)
         {
-
+            Menu.Remove(ind);
         }
         public Meal RetrieveMenuItem(int ind)
         {

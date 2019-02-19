@@ -8,11 +8,11 @@ namespace Challenge_01
 {
     class Meal
     {
-        int MealNumber { get; set; }
-        string MealName { get; set; }
-        string MealDescription { get; set; }
-        string MealIngredients { get; set; }
-        float MealPrice { get; set; }
+        public int MealNumber { get; set; }
+        public string MealName { get; set; }
+        public string MealDescription { get; set; }
+        public string MealIngredients { get; set; }
+        public float MealPrice { get; set; }
 
         public Meal(int num, string name, string desc, string ings, float price)
         {
