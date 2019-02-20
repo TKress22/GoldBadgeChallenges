@@ -14,12 +14,35 @@ namespace Challenge_01
         public void Run()
         {
             Console.WriteLine("Welcome to the Komodo Cafe Menu Program.");
-            menuRepo.AddMeal(new Meal(3, "chicken sticks", "sticks of chicken", "chicken, sticks", 5.99f));
-            menuRepo.AddMeal(new Meal(1, "ye", "ey", "y, e", 5.99f));
-            menuRepo.AddMeal(new Meal(2, "yoi", "ioy", "y, o, i", 5.99f));
-            AddMenuItem();
-            RemoveMenuItem();
-            ShowMenu();
+            string resp;
+            while (Running)
+            {
+                Console.WriteLine("Type: \n-'a' to add a new menu item \n-'d' to delete a menu item \n-'v' to view the menu \n-'x' to exit the program");
+                Console.Write("Enter a selection: ");
+                resp = Console.ReadLine().ToLower();
+                switch (resp[0])
+                {
+                    case 'd':
+                        Console.Clear();
+                        RemoveMenuItem();
+                        break;
+                    case 'a':
+                        Console.Clear();
+                        AddMenuItem();
+                        break;
+                    case 'v':
+                        Console.Clear();
+                        ShowMenu();
+                        break;
+                    case 'x':
+                        Running = false;
+                        Console.WriteLine("Bye!");
+                        break;
+                    default:
+                        Console.Write("Invalid command");
+                        break;
+                }
+            }
             Console.ReadLine();
         }
         public void AddMenuItem()
@@ -61,6 +84,9 @@ namespace Challenge_01
                 }
             }
             menuRepo.AddMeal(new Meal(itemNum, itemName, itemDesc, itemIngs, itemPrice));
+            Console.WriteLine("Item added. Press enter to continue.");
+            Console.ReadLine();
+            Console.Clear();
         }
         public void RemoveMenuItem()
         {
@@ -78,6 +104,9 @@ namespace Challenge_01
                 }
             }
             menuRepo.RemoveMeal(ind);
+            Console.WriteLine("Item removed. Press enter to continue. Press enter to continue.");
+            Console.ReadLine();
+            Console.Clear();
         }
         public void ShowMenu()
         {
@@ -85,8 +114,9 @@ namespace Challenge_01
             Console.WriteLine("Menu: ");
             foreach(int r in temp.Keys)
             {
-                Console.WriteLine("-#" + temp[r].MealNumber + " " + temp[r].MealName + " $" + temp[r].MealPrice + "\n \t-" + temp[r].MealDescription);
+                Console.WriteLine("-#" + temp[r].MealNumber + " " + temp[r].MealName + " $" + temp[r].MealPrice + "\n \t-" + temp[r].MealDescription + "\n \t Ingredients: " +temp[r].MealIngredients);
             }
+            Console.WriteLine("\n\n");
         }
         
     }

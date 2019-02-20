@@ -6,13 +6,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Challenge_01_Test
 {
     [TestClass]
-    public class UnitTest1
+    public class Challenge_01Tests
     {
         MenuRepository MenuRepo = new MenuRepository();
-        [TestMethod]
-        public void Test()
-        {
 
+        [TestMethod]
+        public void AddMealTest()
+        {
+            
         }
     }
 }
