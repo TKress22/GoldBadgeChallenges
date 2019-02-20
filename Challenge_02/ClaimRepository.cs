@@ -23,7 +23,7 @@ namespace Challenge_02
         }
         public string ReturnPrettyDate(DateTime dat)
         {
-            string pretty = dat.Day + "/" + dat.Month + "/" + dat.Year;
+            string pretty = dat.Month + "/" + dat.Day + "/" + dat.Year;
             return pretty;
         }
     }
