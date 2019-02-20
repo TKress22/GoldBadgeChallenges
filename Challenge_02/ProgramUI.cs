@@ -9,25 +9,53 @@ namespace Challenge_02
     class ProgramUI
     {
         ClaimRepository claimRepo = new ClaimRepository();
+        bool running = true;
 
         public void Run()
         {
             Console.WindowWidth = 120;
             Console.WindowHeight = 45;
 
-            AddClaimMenu();
+            Console.WriteLine("Komodo Claims App\n");
+
+            while (running)
+            {
+                Console.Write("Enter 'a' to add a new claim, 'v' to view all claims, 'h' to handle the next claim or 'x' to exit: ");
+                switch (Console.ReadLine().ToLower()[0])
+                {
+                    case 'a':
+                        AddClaimMenu();
+                        break;
+                    case 'v':
+                        ViewClaims();
+                        break;
+                    case 'h':
+                        WorkClaimMenu();
+                        break;
+                    case 'x':
+                        Console.WriteLine("Bye!");
+                        running = false;
+                        break;
+                    default:
+                        Console.WriteLine("Unrecognised command");
+                        break;
+                }
+            }
+
             Console.ReadLine();
         }
 
         public void AddClaimMenu()
         {
             bool valid = false;
-            int id;
-            TypeOfClaim type;
+
+            int id = -1;
+            TypeOfClaim type = TypeOfClaim.Car;
             string desc;
-            double amt;
-            string accDate;
-            string clmDate;
+            double amt = 0;
+            DateTime accDate = new DateTime();
+            DateTime clmDate = new DateTime();
+            Dictionary<string, int> test = new Dictionary<string, int>();
 
             Console.WriteLine("New claim:\n");
 
@@ -45,8 +73,64 @@ namespace Challenge_02
             Console.Write("Enter the claim type: ");
             while (!valid)
             {
-                switch()
+                switch (Console.ReadLine().ToLower())
+                {
+                    case "house":
+                        type = TypeOfClaim.House;
+                        valid = true;
+                        break;
+                    case "car":
+                        type = TypeOfClaim.Car;
+                        valid = true;
+                        break;
+                    case "theft":
+                        type = TypeOfClaim.Theft;
+                        valid = true;
+                        break;
+                    default:
+                        Console.Write("Invalid type. Types are (House, Theft, Car): ");
+                        break;
+                }
             }
+            valid = false;
+
+            Console.Write("Enter a claim description: ");
+            desc = Console.ReadLine();
+
+            Console.Write("Enter the claim amount: ");
+            while (!valid)
+            {
+                valid = double.TryParse(Console.ReadLine(), out amt);
+                if (!valid)
+                {
+                    Console.Write("Please enter a numerical value: ");
+                }
+            }
+            valid = false;
+
+            Console.Write("Enter the accident date: ");
+            while (!valid)
+            {
+                valid = DateTime.TryParse(Console.ReadLine(), out accDate);
+                if (!valid)
+                {
+                    Console.Write("Please enter a valid date (mm/dd/yy): ");
+                }
+            }
+            valid = false;
+
+            Console.Write("Enter the claim date: ");
+            while (!valid)
+            {
+                valid = DateTime.TryParse(Console.ReadLine(), out clmDate);
+                if (!valid)
+                {
+                    Console.Write("Please enter a valid date (mm/dd/yy): ");
+                }
+            }
+            valid = false;
+
+            claimRepo.AddClaim(new Claim(id, type, desc, amt, accDate, clmDate));
         }
 
         public void WorkClaimMenu()
