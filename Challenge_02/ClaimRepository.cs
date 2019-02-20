@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace Challenge_02
 {
-    class Program
+    class ClaimRepository
     {
-        static void Main(string[] args)
-        {
-            ProgramUI ui = new ProgramUI();
-
-            ui.Run();
-        }
     }
 }

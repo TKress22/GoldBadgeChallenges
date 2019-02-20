@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace Challenge_02
 {
-    class Program
+    class ProgramUI
     {
-        static void Main(string[] args)
+        public void Run()
         {
-            ProgramUI ui = new ProgramUI();
-
-            ui.Run();
+            Console.WriteLine("Works");
+            Console.ReadLine();
         }
     }
 }
