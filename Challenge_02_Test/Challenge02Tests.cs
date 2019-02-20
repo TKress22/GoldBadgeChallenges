@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Challenge_02_Test
@@ -9,6 +10,7 @@ namespace Challenge_02_Test
         [TestMethod]
         public void TestMethod1()
         {
+            Claim clm = new Claim();
         }
     }
 }
