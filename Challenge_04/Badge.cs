@@ -16,5 +16,13 @@ namespace Challenge_04
             BadgeID = id;
             Doors = doors;
         }
+        public void RemoveDoor(string door)
+        {
+            Doors.Remove(door);
+        }
+        public void AddDoor(string door)
+        {
+            Doors.Add(door);
+        }
     }
 }
