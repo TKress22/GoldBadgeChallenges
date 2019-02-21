@@ -21,11 +21,22 @@ namespace Challenge_03
         public double GetGrandTotal()
         {
             double total = 0;
+            foreach(var r in outings)
+            {
+                total += r.TotalCost;
+            }
             return total;
         }        
         public double GetTotalByType(OutingType type)
         {
             double total = 0;
+            foreach (var r in outings)
+            {
+                if(r.EventType == type)
+                {
+                    total += r.TotalCost;
+                }
+            }
             return total;
         }
     }
