@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace Challenge_04
 {
-    class Program
+    public class BadgeRepository
     {
-        static void Main(string[] args)
-        {
-            ProgramUI ui = new ProgramUI();
-            ui.Run();
-        }
+
     }
 }
